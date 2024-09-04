@@ -14,8 +14,9 @@ import sidebarBg from '../../assets/bg2.jpg';
 import { DiReact } from "react-icons/di";
 import { MdDashboard } from "react-icons/md";
 import './SideBar.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const SideBar = (props) => {
+    const navigate = useNavigate();
     const { image, collapsed, toggled, handleToggleSidebar } = props;
     return (
         <>
@@ -40,7 +41,7 @@ const SideBar = (props) => {
                         }}
                     >
                         <DiReact size={'3em'} color={"00bfff"} />
-                        <span >TranHoangQuangVu</span>
+                        <span onClick={() => navigate('/ ')}>TranHoangQuangVu</span>
                     </div>
                 </SidebarHeader>
 
@@ -58,9 +59,9 @@ const SideBar = (props) => {
                             icon={<FaGem />}
                             title="Features"
                         >
-                            <MenuItem> Quản lý Users <Link to="/admins/manage-users" /></MenuItem>
-                            <MenuItem > Quản lý Bài Quiz </MenuItem>
-                            <MenuItem> Quản lý Câu Hỏi</MenuItem>
+                            <MenuItem> User Management <Link to="/admins/manage-users" /></MenuItem>
+                            <MenuItem > Quizzes Management <Link to='/admins/manage-quizzes' /></MenuItem>
+                            <MenuItem> Question Management<Link to='/admins/manage-questions' /></MenuItem>
                         </SubMenu>
 
                     </Menu>
@@ -74,7 +75,7 @@ const SideBar = (props) => {
                         }}
                     >
                         <a
-                            href="https://github.com/tranhoangvuss/tranhoangvuss"
+                            href="https://github.com/tranhoangvuss/tranhoangvuss/tree/prod"
                             target="_blank"
                             className="sidebar-btn"
                             rel="noopener noreferrer"
