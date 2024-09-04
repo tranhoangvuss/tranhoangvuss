@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { increaseCounter, decreaseCounter } from './redux/action/counterAction';
-import MyComponent from './components/MyComponent';
-import React from 'react';
 
-class App extends React.Component {
-  state = {
-    name: 'a',
-    age: '19'
-  }
-
-  render() {
-    return (
-      <div >
-
-        Hello world!
-        my name is {this.state.name}
+import './App.scss';
+import Header from './components/Header/header';
+import { Outlet, Link } from "react-router-dom";
+import PerfectScrollbar from 'react-perfect-scrollbar';
+const App = () => {
+  return (
+    <div className='app-container' >
+      <div className='header-container'>
+        <Header />
       </div>
-    )
-  }
+      <div className='main-container'>
+        < div className='sideav-container'>
+        </div>
+        <div className='app-content'>
+          <PerfectScrollbar>
+            <Outlet />
+          </PerfectScrollbar>
+
+        </div>
+      </div>
+    </div >
+  );
+
 }
 
 
